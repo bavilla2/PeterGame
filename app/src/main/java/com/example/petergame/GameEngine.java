@@ -18,9 +18,9 @@ public class GameEngine extends Thread {
     private int points = 0;
 
     /*Constructor*/
-    public Engine(Context context, World world) {
+    public GameEngine(Context context, World world) {
         this.world = world;
-        activity = (Activity2) context;
+        actualGame = (Activity2) context;
 
         random = new Random();
     }//Engine
@@ -40,13 +40,13 @@ public class GameEngine extends Thread {
     private Obstacles randObstacle(int id) {
         switch (id) {
             case 0:
-                return new BikeRider(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10);
+                return new BikeRider(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10), 0);
             case 1:
-                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7);
+                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7), 0);
             case 2:
-                return new Skater(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 5);
+                //return new Skater(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 5);
             default:
-                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7);
+                //return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7);
         }//switch
     }//randObstacle
 
@@ -65,11 +65,11 @@ public class GameEngine extends Thread {
             else if (world.getPeter().isJumping() && world.getPeter().isFalling()) {
                 if (world.getPeter().getPosY() < world.getPeter().getInitY()) {
                     System.out.println("Falling!");
-                    world.getPeter.move(0, gravity);
+                    world.getPeter().move(0, gravity);
                 }//if
                 else {
-                    world.getPeter.setFalling(false);
-                    world.getPeter.Jumping(false);
+                    world.getPeter().setFalling(false);
+                    world.getPeter().Jumping(false);
                 }//else
             }//else if
         }//Synchronized(Peter)
@@ -79,7 +79,7 @@ public class GameEngine extends Thread {
     private void shiftWorld() {
         synchronized (world.getObstacles()) {
             if (world.getObstacles().isEmpty()) {
-                world.getObstacles.add(randObstacle(random.nextInt(numberObstacle)));
+                world.getObstacles().add(randObstacle(random.nextInt(numberObstacle)));
             }//if
 
             for (int c = 0; c < world.getObstacles().size(); c++) {
@@ -105,7 +105,7 @@ public class GameEngine extends Thread {
 
     /*Update the Points*/
     public void updateView() {
-        activity.getScoreView.setText("Points: " + Integer.toString(points / 10));
+        actualGame.getScoreView.setText("Points: " + Integer.toString(points / 10));
     }//updateView
 
     /*Run*/
