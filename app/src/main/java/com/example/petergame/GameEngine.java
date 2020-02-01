@@ -40,9 +40,9 @@ public class GameEngine extends Thread {
     private Obstacles randObstacle(int id) {
         switch (id) {
             case 0:
-                //return new BikeRider(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10);
+                return new BikeRider(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10), 0);
             case 1:
-                //return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7);
+                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7), 0);
             case 2:
                 //return new Skater(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 5);
             default:

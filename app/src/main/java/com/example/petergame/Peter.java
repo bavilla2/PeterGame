@@ -8,8 +8,8 @@ public class Peter extends Entity {
     private Animate jump;
 
     //Constructor
-    public Peter(int posX, int posY){
-       super(posX, posY, Constants.SCREEN_WIDTH/9, Constants.SCREEN_HEIGHT/3);
+    public Peter(int posX, int posY, int speedX, int speedY){
+       super(posX, posY, Constants.SCREEN_WIDTH/9, Constants.SCREEN_HEIGHT/3, 0, speedY);
        setPoints(0);
        setJumpHeight(posY - (6*getHeight()/5));
        setHitBox(posX + (getWidth()/10), posY + (getHeight()/10), posX+(9 * getWidth()/10), posY + (9 * getHeight()/10));
