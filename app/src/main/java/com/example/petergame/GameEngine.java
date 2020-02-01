@@ -40,13 +40,13 @@ public class GameEngine extends Thread {
     private Obstacles randObstacle(int id) {
         switch (id) {
             case 0:
-                return new BikeRack(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10);
+                return new BikeRider(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10);
             case 1:
-                return new BikeRack(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7);
+                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7);
             case 2:
-                return new BikeRack(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 5);
+                return new Skater(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 5);
             default:
-                return new BikeRack(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7);
+                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7);
         }//switch
     }//randObstacle
 
@@ -92,9 +92,9 @@ public class GameEngine extends Thread {
                 }
             }//for
 
-            if (distanceIt >= (obstacleDistance + rand.nextInt(60))) {
-                if (distanceIt >= (obstacleDistance + rand.nextInt(150))) {
-                    world.getObstacles().add(randObstacle(rand.nextInt(numberObstacle)));
+            if (distanceIt >= (obstacleDistance + random.nextInt(60))) {
+                if (distanceIt >= (obstacleDistance + random.nextInt(150))) {
+                    world.getObstacles().add(randObstacle(random.nextInt(numberObstacle)));
                     distanceIt = 0;
                 }//if
                 distanceIt++;

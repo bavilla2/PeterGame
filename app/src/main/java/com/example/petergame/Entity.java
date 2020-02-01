@@ -159,9 +159,7 @@ public abstract class Entity {
     public void move(int x, int y){
         posX += x;
         posY += y;
-
         //moveRelPos(x);
-
         getRect().offset(x, y);
         if((getHitBox() != null) && !getHitBox().isEmpty()){
             getHitBox().offset(x, y);

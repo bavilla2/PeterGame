@@ -18,6 +18,8 @@ public class World {
     private Peter peter;
     private Vector<Obstacles> obstacles = new Vector<>(10);
     private BikeRider br;
+    private Officer officer;
+    private Skater skater;
 
     /*Constructor*/
     public World(){
