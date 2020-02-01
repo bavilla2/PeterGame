@@ -63,9 +63,9 @@ public abstract class Entity {
         return rect.height();
     }
 
-    public int getSpeedY() {return speedY};// get the y velocity
+    public int getSpeedY() {return speedY;};// get the y velocity
 
-    public void setSpeedY(int speed) {speedY = speed};//Sets the y velocity
+    public void setSpeedY(int speed) {speedY = speed;};//Sets the y velocity
     public boolean isFalling(){
         return falling;
     }
