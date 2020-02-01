@@ -6,6 +6,7 @@ import android.graphics.Rect;
 public abstract class Entity {
     private Rect rect, hitBox;
     private int posX, posY;
+    private int speedX, speedY;
 
     //Entity will know if its in air
     private boolean falling = false;
@@ -18,7 +19,7 @@ public abstract class Entity {
         rect.setEmpty();
     } // Entity
 
-    public Entity(int posX, int posY, int width, int height){ // Constructor
+    public Entity(int posX, int posY, int width, int height, int velocity){ // Constructor
         rect = new Rect(posX, posY, posX + width, posY + height);
 
         setPosX(posX);
@@ -69,13 +70,13 @@ public abstract class Entity {
     } // getAnimation
 
     //All Entity subclasses should have a method that changes its x and y position
-    public void move(int x, int y){
-        setPosX(getPosX() + x);
-        setPosY(getPosY() + y);
+    public void move(){
+        setPosX(getPosX() + speedX);
+        setPosY(getPosY() + speedY);
 
-        getRect().offset(x, y);
+        getRect().offset(speedX, speedY);
         if((getHitBox() != null) && !getHitBox().isEmpty()){
-            getHitBox().offset(x, y);
+            getHitBox().offset(speedX, speedY);
         }//if
     } // move
 
