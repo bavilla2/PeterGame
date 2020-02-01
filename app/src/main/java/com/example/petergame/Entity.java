@@ -19,8 +19,10 @@ public abstract class Entity {
         rect.setEmpty();
     } // Entity
 
-    public Entity(int posX, int posY, int width, int height, int velocity){ // Constructor
+    public Entity(int posX, int posY, int width, int height, int SpeedX, int SpeedY){ // Constructor
         rect = new Rect(posX, posY, posX + width, posY + height);
+        speedX = SpeedX;
+        speedY = SpeedY;
 
         setPosX(posX);
         setPosY(posY);
