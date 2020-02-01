@@ -5,8 +5,8 @@ import android.graphics.Bitmap;
 public class Animate {
 
     /* Class Variables */
-    private Bitmap spriteSheet; // Holds the frames of animation on an image sheet
-    private int frames; // number of frames within sprite sheet
+    private Bitmap spriteSheet; // holds the sheet that contains all frames
+    private Bitmap[] sprites; // Holds the frames of animation
     private int frameIndex; // index to distinguish the current frame
     private boolean animating; // used to check if object animation is currently running
     private double startTime; // stamps the start time of animation
@@ -17,7 +17,7 @@ public class Animate {
     /* Class Methods */
     public Animate(Bitmap spriteSheet, int frames, double animationTime){ // Constructor
         setSpriteSheet(spriteSheet);
-        setFrames(frames);
+        createSpriteArray(frames);
         setTPF(animationTime);
         setStartTime();
     } // Constructor
@@ -27,17 +27,17 @@ public class Animate {
         this.spriteSheet = spriteSheet;
     } // setSpriteSheet
 
-    private void setFrames(int frames){ // sets the number of frames in sprite sheet
-        this.frames = frames;
-    } // setFrames
-
-    private int getFrames(){ // retrieves number of frames in this animation
-        return frames;
-    } // getFrames
+    private void createSpriteArray(int frames){ // creates bitmap array that holds frames
+        sprites = new Bitmap[frames];
+    } // createSpriteArray
 
     private void setTPF(double animationTime){ // sets time per frame
-        timePerFrame = (animationTime / (double) getFrames()) * timeConvert ;
-    }// setTPS
+        timePerFrame = (animationTime / (double) length()) * timeConvert ;
+    } //
+
+    private double getTPF(){ // returns timePerFrame
+        return timePerFrame;
+    } // getTPF
 
     private void setStartTime(){ // stamps the start time in milli seconds
         startTime = System.currentTimeMillis();
@@ -47,11 +47,35 @@ public class Animate {
         return startTime;
     } // getStartTime
 
-    private void setFrameIndex(int frameIndex){ // assigns a value to frameIndex
+    private void setFrameIndex(int frameIndex){ // assigns a value of current frame to frameIndex
         this.frameIndex = frameIndex;
-    }// setFrameIndex
+    } // setFrameIndex
+
+    private int getFrameIndex(){ // returns the index of the current frame
+        return frameIndex;
+    } // getFrameIndex
+
+    private void update(){
+        double dTime = System.currentTimeMillis() - getStartTime();
+        if(isAnimating() && (dTime > getTPF()) ){
+            setFrameIndex(++frameIndex % length());
+            setStartTime();
+        } // if
+    } // update
 
     /* Public Methods */
+    public int length(){ // retrieves number of frames in this animation
+        return sprites.length;
+    } // getFrames
+
+    public void insertFrame(Bitmap frame, int index){ // places a frame in the sprite array at the given index
+       sprites[index] = frame;
+    } // insertFrame
+
+    public Bitmap getCurrentFrame(){
+        return sprites[getFrameIndex()];
+    } // getCurrentFrame
+
     public boolean isAnimating(){ // methods that checks if the animation is running
         return animating;
     } // isAnimating
