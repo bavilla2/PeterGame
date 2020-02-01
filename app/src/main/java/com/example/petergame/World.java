@@ -17,15 +17,15 @@ public class World {
 
     private Peter peter;
     private Vector<Obstacles> obstacles = new Vector<>(10);
-    private BikeRider br;
-    private Officer officer;
-    private Skater skater;
+    //private BikeRider br;
+    //private Officer officer;
+    //private Skater skater;
 
     /*Constructor*/
     public World(){
         setEndGame(false);
         peter = new Peter((SCREEN_WIDTH/9), (SCREEN_HEIGHT/4)*2);
-        br = new BikeRider((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (Constants.SCREEN_HEIGHT/3) - (Constants.SCREEN_HEIGHT/10));
+        //br = new BikeRider((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (Constants.SCREEN_HEIGHT/3) - (Constants.SCREEN_HEIGHT/10));
     }//World Constructor
 
     /*Sets the end of the game*/
@@ -44,7 +44,7 @@ public class World {
     }//getPeter
 
     /*Makes bike rack accessible to other classes*/
-    public BikeRider getBike(){
+    /*public BikeRider getBike(){
         return br;
     }//getBike
 
@@ -76,7 +76,7 @@ public class World {
 
         for(int c = 0; c < getObstacles().size(); c++){
             if(getObstacles().get(c) != null) {
-                if (getObstacles().get(c) instanceof BikeRider) {
+                /*if (getObstacles().get(c) instanceof BikeRider) {
                     cam.drawRect(getObstacles().get(c).getRect(), bikeColor);
                 } /*else if (getObstacles().get(c) instanceof Pole) {
                     cam.drawRect(getObstacles().get(c).getRect(), poleColor);
