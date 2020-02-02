@@ -64,15 +64,15 @@ public class Activity2 extends AppCompatActivity {
         Camera.getWorld().getPeter().getJump().setSpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.jump));
         peterHeight = Camera.getWorld().getPeter().getJump().getSpriteSheet().getHeight();
         peterWidth = Camera.getWorld().getPeter().getJump().getSpriteSheet().getWidth() / (Camera.getWorld().getPeter().getJump().length() * 2);
-        for(int x = 0; x < Camera.getWorld().getPeter().getJump().length()/2; x++){
+        for(int x = 0; x < Camera.getWorld().getPeter().getJump().length(); x++){
             Camera.getWorld().getPeter().getJump().insertFrame(Bitmap.createBitmap(Camera.getWorld().getPeter().getJump().getSpriteSheet(), x*peterWidth, 0, peterWidth, peterHeight), x);
         }//for
 
         Camera.getWorld().getPeter().getFall().setSpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.jump));
         peterHeight = Camera.getWorld().getPeter().getFall().getSpriteSheet().getHeight();
-        peterWidth = Camera.getWorld().getPeter().getFall().getSpriteSheet().getWidth() / Camera.getWorld().getPeter().getFall().length();
-        for(int z = 2; z < Camera.getWorld().getPeter().getFall().length(); z++){
-            Camera.getWorld().getPeter().getFall().insertFrame(Bitmap.createBitmap(Camera.getWorld().getPeter().getFall().getSpriteSheet(), z*peterWidth, 0, peterWidth, peterHeight), z);
+        peterWidth = Camera.getWorld().getPeter().getFall().getSpriteSheet().getWidth() / (Camera.getWorld().getPeter().getFall().length() * 2);
+        for(int z = 2; z < Camera.getWorld().getPeter().getFall().length() * 2; z++){
+            Camera.getWorld().getPeter().getFall().insertFrame(Bitmap.createBitmap(Camera.getWorld().getPeter().getFall().getSpriteSheet(), z*peterWidth, 0, peterWidth, peterHeight), z-2);
         }//for
 
 
@@ -110,6 +110,7 @@ public class Activity2 extends AppCompatActivity {
             else
             {
                 Camera.getWorld().getPeter().inAir = true;
+                Camera.getWorld().getPeter().getCurrentAnimation().stopAnimation();
                 Camera.getWorld().getPeter().setCurrentAnimation(Camera.getWorld().getPeter().getJump());
                 Camera.getWorld().getPeter().getCurrentAnimation().startAnimation();
                 Camera.getWorld().getPeter().setSpeedY((int)(Camera.getWorld().getPeter().getHeight() * - 0.15));
