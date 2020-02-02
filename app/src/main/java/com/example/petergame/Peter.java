@@ -1,5 +1,7 @@
 package com.example.petergame;
 
+import android.graphics.BitmapFactory;
+
 public class Peter extends Entity {
     public int points;
     private int jumpSpeed;
@@ -10,11 +12,12 @@ public class Peter extends Entity {
     //Constructor
     public Peter(int posX, int posY, int speedX, int speedY){
        super(posX, posY, Constants.SCREEN_WIDTH/9, Constants.SCREEN_HEIGHT/3, 0, speedY);
+       jump = new Animate(4, 1);
+       damage = new Animate(4, 1);
        setPoints(0);
        setJumpSpeed((getHeight()/-7));
        setHitBox(posX + (getWidth()/10), posY + (getHeight()/10), posX+(9 * getWidth()/10), posY + (9 * getHeight()/10));
-
-      // setCurrentAnimation(getIdle());
+       // setCurrentAnimation(getIdle());
     }//Peter
 
     /*Private Methods*/
@@ -29,6 +32,7 @@ public class Peter extends Entity {
 //    public void Jumping(boolean jumping){this.jumping = jumping;}
 //    public boolean isJumping(){return jumping;}
     public int getJumpSpeed(){return jumpSpeed;}
-
+    public Animate getJump(){return jump;}
+    public Animate getDamage(){return damage;}
 
 }//Peter class

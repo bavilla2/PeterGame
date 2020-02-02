@@ -15,15 +15,14 @@ public class Animate {
     private final double timeConvert = 1000; // used to convert milliseconds to  seconds
 
     /* Class Methods */
-    public Animate(Bitmap spriteSheet, int frames, double animationTime){ // Constructor
-        setSpriteSheet(spriteSheet);
+    public Animate(int frames, double animationTime){ // Constructor
         createSpriteArray(frames);
         setTPF(animationTime);
         setStartTime();
     } // Constructor
 
     /* Private Methods */
-    private void setSpriteSheet(Bitmap spriteSheet){ // stores sprite sheet to this object
+    public void setSpriteSheet(Bitmap spriteSheet){ // stores sprite sheet to this object
         this.spriteSheet = spriteSheet;
     } // setSpriteSheet
 
@@ -38,6 +37,8 @@ public class Animate {
     private double getTPF(){ // returns timePerFrame
         return timePerFrame;
     } // getTPF
+
+    public Bitmap getSpriteSheet(){return spriteSheet;}
 
     private void setStartTime(){ // stamps the start time in milli seconds
         startTime = System.currentTimeMillis();
