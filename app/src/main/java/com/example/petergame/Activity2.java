@@ -23,6 +23,7 @@ public class Activity2 extends AppCompatActivity {
     int bikerHeight, bikerWidth;
     int officerHeight, officerWidth;
     int skaterHeight, skaterWidth;
+
     public TextView getScoreView(){return scoreView;}
 
 

@@ -11,5 +11,10 @@ public class BikeRider extends Obstacles{
         //setHitBox(posX, posY, (Constants.SCREEN_WIDTH/7), (Constants.SCREEN_HEIGHT/10));
     }
 
+    public BikeRider(BikeRider obs){
+        super(Constants.SCREEN_WIDTH - obs.getWidth(), obs.getPosY(), obs.getWidth(), obs.getHeight(), obs.getSpeedX());
+        setAnimation(obs.getWalk());
+    }
+
     public Animate getWalk(){return walk;}
 }

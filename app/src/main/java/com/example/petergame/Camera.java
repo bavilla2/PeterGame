@@ -38,10 +38,10 @@ public class Camera extends View {
     @Override
     protected void onDraw(Canvas cam){
 
-        for(int c = 0; c < world.getObstacles().size(); c++){
-            if(world.getObstacles().get(c) != null) {
-                cam.drawRect(getWorld().getObstacles().get(c).getRect(), new Paint());
-            }
+        for(int c = 0; c < getWorld().getObstacles().size(); c++) {
+            if (getWorld().getObstacles().get(c) != null) {
+                    cam.drawBitmap(getWorld().getObstacles().get(c).getAnimation().getCurrentFrame(), null, getWorld().getObstacles().get(c).getRect(), new Paint());
+                }
         }
 
         cam.drawBitmap(getWorld().getPeter().getCurrentAnimation().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());

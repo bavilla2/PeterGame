@@ -65,6 +65,8 @@ public abstract class Entity {
         return rect.height();
     }
 
+    public int getSpeedX(){return speedX;}
+
     public int getSpeedY() {return speedY;}// get the y velocity
 
     public void setSpeedY(int speed) {speedY = speed;}//Sets the y velocity
