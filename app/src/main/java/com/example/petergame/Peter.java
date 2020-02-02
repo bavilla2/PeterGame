@@ -2,7 +2,7 @@ package com.example.petergame;
 
 public class Peter extends Entity {
     public int points;
-    private int jumpHeight;
+    private int jumpSpeed;
     private boolean jumping;
     private Animate damage;
     private Animate jump;
@@ -11,7 +11,7 @@ public class Peter extends Entity {
     public Peter(int posX, int posY, int speedX, int speedY){
        super(posX, posY, Constants.SCREEN_WIDTH/9, Constants.SCREEN_HEIGHT/3, 0, speedY);
        setPoints(0);
-       setJumpHeight(posY - (6*getHeight()/5));
+       setJumpSpeed((getHeight()/-7));
        setHitBox(posX + (getWidth()/10), posY + (getHeight()/10), posX+(9 * getWidth()/10), posY + (9 * getHeight()/10));
 
       // setCurrentAnimation(getIdle());
@@ -21,13 +21,14 @@ public class Peter extends Entity {
     private void setPoints(int points){this.points = points;}
     public int getPoints(){return points;}
     private void addPoints(int points){this.points += points;}
-    private void setJumpHeight(int jumpHeight){this.jumpHeight = jumpHeight;}
+    private void setJumpSpeed(int jumpHeight){this.jumpSpeed = jumpHeight;}
 
 
     /*Public Methods*/
-    public void Jumping(boolean jumping){this.jumping = jumping;}
-    public boolean isJumping(){return jumping;}
-    public int getJumpHeight(){return jumpHeight;}
+    public boolean inAir = false;
+//    public void Jumping(boolean jumping){this.jumping = jumping;}
+//    public boolean isJumping(){return jumping;}
+    public int getJumpSpeed(){return jumpSpeed;}
 
 
 }//Peter class

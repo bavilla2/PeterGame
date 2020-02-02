@@ -40,38 +40,48 @@ public class GameEngine extends Thread {
     private Obstacles randObstacle(int id) {
         switch (id) {
             case 0:
-                return new BikeRider(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10), 0);
+                return new BikeRider(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10), runSpeed * 2);
             case 1:
-                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7), 0);
+                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7), runSpeed);
             case 2:
-                //return new Skater(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 5);
+                return new Skater(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 5),(int)(runSpeed * 1.5));
             default:
-                //return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2)) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7);
+                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7), runSpeed);
         }//switch
     }//randObstacle
 
     /*Gravity on Peter*/
     private void Gravity() {
         synchronized (world.getPeter()) {
-            if (world.getPeter().isJumping() && !world.getPeter().isFalling()) {
-                System.out.println("Jumping!");
-                if (world.getPeter().getPosY() > world.getPeter().getJumpHeight()) {
-                    world.getPeter().move(0, -gravity);
-                }//if
-                else {
-                    world.getPeter().setFalling(true);
-                }//else
-            }//if
-            else if (world.getPeter().isJumping() && world.getPeter().isFalling()) {
-                if (world.getPeter().getPosY() < world.getPeter().getInitY()) {
-                    System.out.println("Falling!");
-                    world.getPeter().move(0, gravity);
-                }//if
-                else {
-                    world.getPeter().setFalling(false);
-                    world.getPeter().Jumping(false);
-                }//else
-            }//else if
+
+            if(world.getPeter().inAir)
+            {
+                world.getPeter().setSpeedY(world.getPeter().getSpeedY() - (int)(0.5 * world.getPeter().getHeight()) );
+                if (world.getPeter().getSpeedY() == world.getPeter().getJumpSpeed())
+                {
+                    world.getPeter().inAir = false;
+                }
+                world.getPeter().move();
+            }
+//            if (world.getPeter().isJumping() && !world.getPeter().isFalling()) {
+//                System.out.println("Jumping!");
+//                if (world.getPeter().getPosY() > world.getPeter().getJumpHeight()) {
+//                    world.getPeter().move(0, -gravity);
+//                }//if
+//                else {
+//                    world.getPeter().setFalling(true);
+//                }//else
+//            }//if
+//            else if (world.getPeter().isJumping() && world.getPeter().isFalling()) {
+//                if (world.getPeter().getPosY() < world.getPeter().getInitY()) {
+//                    System.out.println("Falling!");
+//                    world.getPeter().move(0, gravity);
+//                }//if
+//                else {
+//                    world.getPeter().setFalling(false);
+//                    world.getPeter().Jumping(false);
+//                }//else
+//            }//else if
         }//Synchronized(Peter)
     }//Gravity
 
@@ -83,7 +93,7 @@ public class GameEngine extends Thread {
             }//if
 
             for (int c = 0; c < world.getObstacles().size(); c++) {
-                world.getObstacles().get(c).move(-(runSpeed + world.getObstacles().get(c).getSpeed()), 0);
+                world.getObstacles().get(c).move();
                 if ((world.getObstacles().get(c).getPosX() + world.getObstacles().get(c).getWidth()) <= 0) {
                     world.getObstacles().remove(c);
                 }//if
@@ -104,9 +114,9 @@ public class GameEngine extends Thread {
     }//shiftWorld
 
     /*Update the Points*/
-    public void updateView() {
-        actualGame.getScoreView.setText("Points: " + Integer.toString(points / 10));
-    }//updateView
+//    public void updateView() {
+//        actualGame.getScoreView.setText("Points: " + Integer.toString(points / 10));
+//    }//updateView
 
     /*Run*/
     public void run(){
@@ -115,7 +125,7 @@ public class GameEngine extends Thread {
                 Gravity();
                 shiftWorld();
                 sleep(25);
-                updateView();
+                //updateView();
             } catch(InterruptedException e){
                 e.printStackTrace();
             }//catch

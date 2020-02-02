@@ -24,7 +24,7 @@ public class World {
     /*Constructor*/
     public World(){
         setEndGame(false);
-        peter = new Peter((SCREEN_WIDTH/9), (SCREEN_HEIGHT/4)*2);
+        peter = new Peter((SCREEN_WIDTH/9), (SCREEN_HEIGHT/4)*2, 0, 0);
         br = new BikeRider((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (Constants.SCREEN_HEIGHT/3) - (Constants.SCREEN_HEIGHT/10), 0);
         officer = new Officer((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (SCREEN_HEIGHT/3) - (SCREEN_HEIGHT/10), 0);
     }//World Constructor
