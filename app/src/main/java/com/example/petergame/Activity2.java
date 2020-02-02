@@ -31,10 +31,6 @@ public class Activity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        MediaPlayer musicPlayer;
-        musicPlayer = MediaPlayer.create(Activity2.this,R.raw.petrgame_music);
-        musicPlayer.setLooping(true);
-        musicPlayer.start();
 
         scoreView = findViewById(R.id.points);
         scoreView.setText("Points: " + Integer.toString(Camera.getWorld().getPeter().getPoints()));
