@@ -26,7 +26,12 @@ public class Constants {
     public static Bitmap[] peterJump = new Bitmap[1];
     public static Bitmap[] peterJumpLeft = new Bitmap[1];
 
-    //Sprites for Pedestrian
-    public static Bitmap pedSprite;
-    public static Bitmap[] pedWalk = new Bitmap[4];
+    //Sprites for Skater
+    public static Bitmap skaterSprite;
+
+    //Sprites for Biker
+    public static Bitmap bikerSprite;
+
+    //Sprites for Officer
+    public static Bitmap officerSprite;
 }
