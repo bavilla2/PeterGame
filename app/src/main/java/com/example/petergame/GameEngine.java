@@ -56,17 +56,18 @@ public class GameEngine extends Thread {
 
             if(world.getPeter().inAir)
             {
-                world.getPeter().move();
-                world.getPeter().setSpeedY(world.getPeter().getSpeedY() + (int)(0.1 * world.getPeter().getHeight()) );
-                if (world.getPeter().getSpeedY() >= world.getPeter().getJumpOrigin())
+                if(world.getPeter().getSpeedY()+world.getPeter().getPosY() >= world.getPeter().getJumpOrigin())
                 {
                     world.getPeter().inAir = false;
                     world.getPeter().setSpeedY(world.getPeter().getJumpOrigin() - world.getPeter().getPosY());
                     world.getPeter().move();
                     world.getPeter().setSpeedY(0);
                 }
-
-                System.out.print(world.getPeter().getPosX());
+                else
+                    {
+                    world.getPeter().move();
+                    world.getPeter().setSpeedY(world.getPeter().getSpeedY() + (int) (0.07 * world.getPeter().getHeight()));
+                }
             }
 //            if (world.getPeter().isJumping() && !world.getPeter().isFalling()) {
 //                System.out.println("Jumping!");
