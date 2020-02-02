@@ -90,7 +90,7 @@ public class Activity2 extends AppCompatActivity {
             else
             {
                 Camera.getWorld().getPeter().inAir = true;
-                Camera.getWorld().getPeter().setSpeedY((int)(Camera.getWorld().getPeter().getHeight() * 0.5));
+                Camera.getWorld().getPeter().setSpeedY((int)(Camera.getWorld().getPeter().getHeight() * - 0.5));
             }
         }
         return true;
