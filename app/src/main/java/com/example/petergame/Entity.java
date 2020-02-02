@@ -32,6 +32,10 @@ public abstract class Entity {
         hitBox = new Rect(left, top, right, bottom);
     }//setHitBox
 
+    public void setHitBox(Rect rect){
+        hitBox = new Rect(rect);
+    }
+
     private void setPosX(int x){posX = x;}
     private void setPosY(int y){posY = y;}
 

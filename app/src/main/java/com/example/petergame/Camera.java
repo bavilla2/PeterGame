@@ -40,10 +40,13 @@ public class Camera extends View {
 
         for(int c = 0; c < getWorld().getObstacles().size(); c++) {
             if (getWorld().getObstacles().get(c) != null) {
+                    //cam.drawRect(getWorld().getObstacles().get(c).getHitBox(), new Paint());
                     cam.drawBitmap(getWorld().getObstacles().get(c).getAnimation().getCurrentFrame(), null, getWorld().getObstacles().get(c).getRect(), new Paint());
+                    getWorld().getObstacles().get(c).getAnimation().update();
                 }
         }
 
+        //cam.drawRect(getWorld().getPeter().getHitBox(), new Paint());
         cam.drawBitmap(getWorld().getPeter().getCurrentAnimation().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());
         Camera.getWorld().getPeter().getCurrentAnimation().update();
 
@@ -57,7 +60,7 @@ public class Camera extends View {
         Camera.getWorld().getSkater().getWalk().update();*/
 
         try{
-            Thread.sleep(1000/30);
+            Thread.sleep(1000/60);
         }catch(InterruptedException e){
             e.printStackTrace();
         }//end try/catch

@@ -24,7 +24,7 @@ public class Peter extends Entity {
        setPoints(0);
        //setJumpSpeed((getHeight()/-7));
         setJumpOrigin((getPosY()));
-       setHitBox(posX + (getWidth()/10), posY + (getHeight()/10), posX+(9 * getWidth()/10), posY + (9 * getHeight()/10));
+       setHitBox(posX + (getWidth()/11), posY + (getHeight()/10), posX+(9 * getWidth()/13), posY + (9 * getHeight()/10));
        // setCurrentAnimation(getIdle());
     }//Peter
 
