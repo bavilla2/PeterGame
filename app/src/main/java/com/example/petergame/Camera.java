@@ -2,6 +2,7 @@ package com.example.petergame;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
@@ -37,20 +38,23 @@ public class Camera extends View {
     @Override
     protected void onDraw(Canvas cam){
 
-        /*cam.drawBitmap(getWorld().getPeter().getJump().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());
-        Camera.getWorld().getPeter().getJump().update();*/
+        for(int c = 0; c < world.getObstacles().size(); c++){
+            if(world.getObstacles().get(c) != null) {
+                cam.drawRect(getWorld().getObstacles().get(c).getRect(), new Paint());
+            }
+        }
 
         cam.drawBitmap(getWorld().getPeter().getCurrentAnimation().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());
         Camera.getWorld().getPeter().getCurrentAnimation().update();
 
-        cam.drawBitmap(getWorld().getBike().getWalk().getCurrentFrame(), null, getWorld().getBike().getRect(), new Paint());
+        /*cam.drawBitmap(getWorld().getBike().getWalk().getCurrentFrame(), null, getWorld().getBike().getRect(), new Paint());
         Camera.getWorld().getBike().getWalk().update();
 
         cam.drawBitmap(getWorld().getOfficer().getWalk().getCurrentFrame(), null, getWorld().getOfficer().getRect(), new Paint());
         Camera.getWorld().getOfficer().getWalk().update();
 
         cam.drawBitmap(getWorld().getSkater().getWalk().getCurrentFrame(), null, getWorld().getSkater().getRect(), new Paint());
-        Camera.getWorld().getSkater().getWalk().update();
+        Camera.getWorld().getSkater().getWalk().update();*/
 
         try{
             Thread.sleep(1000/30);

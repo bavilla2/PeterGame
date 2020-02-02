@@ -9,7 +9,7 @@ public class GameEngine extends Thread {
     private Activity2 actualGame;
 
     private int gravity = Constants.SCREEN_HEIGHT / 75;
-    private int runSpeed = Constants.SCREEN_HEIGHT / 100;
+    private int runSpeed = Constants.SCREEN_HEIGHT / 50;
 
     private Random random;
     private int numberObstacle = 3;
@@ -40,13 +40,13 @@ public class GameEngine extends Thread {
     private Obstacles randObstacle(int id) {
         switch (id) {
             case 0:
-                return new BikeRider(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10), runSpeed * 2);
+                return new BikeRider(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 10), -(runSpeed * 2));
             //case 1:
               //  return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7), runSpeed);
             case 1:
-                return new Skater(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 5),(int)(runSpeed * 1.5));
+                return new Skater(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 5),(int)-(runSpeed * 1.5));
             default:
-                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7), runSpeed);
+                return new Officer(Constants.SCREEN_WIDTH, ((Constants.SCREEN_HEIGHT / 4) * 2) + (Constants.SCREEN_HEIGHT / 3) - (Constants.SCREEN_HEIGHT / 7), -(runSpeed));
         }//switch
     }//randObstacle
 

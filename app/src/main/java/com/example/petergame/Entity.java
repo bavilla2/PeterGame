@@ -37,6 +37,8 @@ public abstract class Entity {
 
     protected void setFalling(boolean falling){this.falling = falling;}
 
+    protected void setAnimation(Animate animation){this.animation = animation;}
+
 
     /* Getter Methods */
     public Rect getRect(){

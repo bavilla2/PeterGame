@@ -61,40 +61,4 @@ public class World {
     /*Makes obstacles accessible to other classes*/
     public Vector<Obstacles> getObstacles(){ return obstacles; }//getObstacles
 
-    /*draws onto our canvas*/
-    /*public void draw(Canvas cam){
-        Paint p = new Paint();
-        Paint bikeColor = new Paint();
-        Paint hitBoxColor = new Paint();
-
-        int color;
-        int color2;
-        int color3;
-
-        color = Color.BLACK;
-        color2 = Color.RED;
-        color3 = Color.GREEN;
-
-        p.setColor(color);
-        bikeColor.setColor(color2);
-        hitBoxColor.setColor(color3);
-
-        cam.drawRect(peter.getRect(), p);
-        cam.drawRect(peter.getHitBox(), hitBoxColor);
-
-        for(int c = 0; c < getObstacles().size(); c++){
-            if(getObstacles().get(c) != null) {
-                /*if (getObstacles().get(c) instanceof BikeRider) {
-                    cam.drawRect(getObstacles().get(c).getRect(), bikeColor);
-                } /*else if (getObstacles().get(c) instanceof Pole) {
-                    cam.drawRect(getObstacles().get(c).getRect(), poleColor);
-                }// if/elif/elif
-            }//if
-        }//for
-
-        cam.drawBitmap(Constants.peterSprite, null, peter.getRect(), new Paint());
-        cam.drawBitmap(Constants.skaterSprite, null, skater.getRect(), new Paint());
-        cam.drawBitmap(Constants.bikerSprite, null, bike.getRect(), new Paint());
-        cam.drawBitmap(Constants.officerSprite, null, officer.getRect(), new Paint());
-    }//draw */
 }//World
