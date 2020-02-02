@@ -37,7 +37,9 @@ public abstract class Entity {
 
     protected void setFalling(boolean falling){this.falling = falling;}
 
-    protected void setAnimation(Animate animation){this.animation = animation;}
+    protected void setAnimation(Animate animation){
+        this.animation = animation;
+    } // setAnimation
 
 
     /* Getter Methods */
