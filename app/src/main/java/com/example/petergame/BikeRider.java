@@ -8,7 +8,7 @@ public class BikeRider extends Obstacles{
         super(posX, posY, (Constants.SCREEN_WIDTH/10), (Constants.SCREEN_HEIGHT/5), speedX);
         walk = new Animate(3, 0.5);
         setAnimation(getWalk());
-        setHitBox(posX, posY, (Constants.SCREEN_WIDTH/15), (Constants.SCREEN_HEIGHT/10));
+        setHitBox(posX, posY, (Constants.SCREEN_WIDTH/20), (Constants.SCREEN_HEIGHT/10));
     }
 
     public BikeRider(BikeRider obs){

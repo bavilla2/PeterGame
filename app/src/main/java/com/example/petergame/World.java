@@ -10,6 +10,7 @@ import java.util.Vector;
 
 import static com.example.petergame.Constants.SCREEN_HEIGHT;
 import static com.example.petergame.Constants.SCREEN_WIDTH;
+import static com.example.petergame.Constants.runSpeed;
 
 
 public class World {
@@ -28,13 +29,13 @@ public class World {
         peter.setCurrentAnimation(peter.getWalk());
         peter.getCurrentAnimation().startAnimation();
 
-        bike = new BikeRider((SCREEN_WIDTH/7)*2, ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -10);
+        bike = new BikeRider((SCREEN_WIDTH/7)*2, ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -(runSpeed));
         bike.getWalk().startAnimation();
 
-        officer = new Officer((SCREEN_WIDTH/4), ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -10);
+        officer = new Officer((SCREEN_WIDTH/4), ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -(runSpeed));
         officer.getWalk().startAnimation();
 
-        skater = new Skater((SCREEN_WIDTH/2), ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -10);
+        skater = new Skater((SCREEN_WIDTH/2), ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -(runSpeed));
         skater.getWalk().startAnimation();
     }//World Constructor
 

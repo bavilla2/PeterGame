@@ -8,6 +8,8 @@ public class Constants {
     public static final int SCREEN_HEIGHT = Resources.getSystem().getDisplayMetrics().widthPixels;
     public static final int SCREEN_WIDTH = Resources.getSystem().getDisplayMetrics().heightPixels;
 
+    public static int runSpeed = SCREEN_HEIGHT/100;
+
     public static Context CURRENT_CONTEXT;
 
     //Sprites for the Level

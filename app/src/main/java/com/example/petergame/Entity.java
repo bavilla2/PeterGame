@@ -78,6 +78,7 @@ public abstract class Entity {
         return falling;
     }
 
+    public void setSpeedX(int speedX){ this.speedX = speedX;}
 
     public Animate getAnimation(){
         return animation;
