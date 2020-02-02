@@ -8,6 +8,11 @@ public class Obstacles extends Entity {
         super(posX, posY, width, height, speedX, 0);
     }//Obstacles
 
+    public Obstacles(Obstacles obs){
+        super(obs.getPosX(), obs.getPosY(), obs.getWidth(), obs.getHeight(), obs.getSpeedX(), 0);
+        this.setAnimation(obs.getAnimation());
+    }
+
     public Animate getWalk(){return walk;}
 
 }//class obstacles

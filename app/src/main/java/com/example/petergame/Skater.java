@@ -12,5 +12,11 @@ public class Skater extends Obstacles{
         setAnimation(getWalk());
         setHitBox(posX, posY, (Constants.SCREEN_WIDTH/7), (Constants.SCREEN_HEIGHT/10));
     }
+
+    public Skater(Skater obs){
+        super(Constants.SCREEN_WIDTH - obs.getWidth(), obs.getPosY(), obs.getWidth(), obs.getHeight(), obs.getSpeedX());
+        setAnimation(obs.getWalk());
+    }
+
     public Animate getWalk(){return walk;}
 }

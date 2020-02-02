@@ -9,5 +9,11 @@ public class Officer extends Obstacles {
         walk = new Animate(1, 1);
         setAnimation(getWalk());
     }//Constructor
+
+    public Officer(Officer obs){
+        super(Constants.SCREEN_WIDTH - obs.getWidth(), obs.getPosY(), obs.getWidth(), obs.getHeight(), obs.getSpeedX());
+        setAnimation(obs.getWalk());
+    }
+
     public Animate getWalk(){return walk;}
 }//Officer Class
