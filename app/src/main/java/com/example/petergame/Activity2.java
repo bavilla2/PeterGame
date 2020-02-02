@@ -37,6 +37,16 @@ public class Activity2 extends AppCompatActivity {
         screenConstraint.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    System.out.println("Screen Pressed");
+                    synchronized (Camera.getWorld().getPeter()){
+                        if(!Camera.getWorld().getPeter().isJumping()){
+                            Camera.getWorld().getPeter().Jumping(true);
+                            System.out.println("Start Jumping");
+                        }//if
+                    }//synch
+                }//if
+
                 return false;
             }
         });

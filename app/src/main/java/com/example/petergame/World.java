@@ -24,16 +24,16 @@ public class World {
     /*Constructor*/
     public World(){
         setEndGame(false);
-        peter = new Peter((SCREEN_WIDTH/9), (SCREEN_HEIGHT/4)*2, 0, 0);
+        peter = new Peter((SCREEN_WIDTH/9), (SCREEN_HEIGHT/14) * 8, 0, 0);
         peter.getWalk().startAnimation();
 
-        bike = new BikeRider((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (Constants.SCREEN_HEIGHT/3) - (Constants.SCREEN_HEIGHT/10), 0);
+        bike = new BikeRider((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) /*+ (Constants.SCREEN_HEIGHT/3) - (Constants.SCREEN_HEIGHT/10)*/, 0);
         bike.getWalk().startAnimation();
 
-        officer = new Officer((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (SCREEN_HEIGHT/3) - (SCREEN_HEIGHT/10), 0);
+        officer = new Officer((SCREEN_WIDTH/4), ((SCREEN_HEIGHT/4)*2) + (SCREEN_HEIGHT/7) - (SCREEN_HEIGHT/10), 0);
         officer.getWalk().startAnimation();
 
-        skater = new Skater((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (SCREEN_HEIGHT/3) - (SCREEN_HEIGHT/10), 0);
+        skater = new Skater((SCREEN_WIDTH/2), ((SCREEN_HEIGHT/4)*2) + (SCREEN_HEIGHT/7) - (SCREEN_HEIGHT/10), 0);
         skater.getWalk().startAnimation();
     }//World Constructor
 
@@ -93,7 +93,7 @@ public class World {
 
         cam.drawBitmap(Constants.peterSprite, null, peter.getRect(), new Paint());
         cam.drawBitmap(Constants.skaterSprite, null, skater.getRect(), new Paint());
-        cam.drawBitmap(Constants.bikerSprite, null, bike.getRect(), new Paint());
+        //cam.drawBitmap(Constants.bikerSprite, null, bike.getRect(), new Paint());
         cam.drawBitmap(Constants.officerSprite, null, officer.getRect(), new Paint());
     }//draw
 }//World
