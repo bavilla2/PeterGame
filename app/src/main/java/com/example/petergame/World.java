@@ -62,4 +62,13 @@ public class World {
     /*Makes obstacles accessible to other classes*/
     public Vector<Obstacles> getObstacles(){ return obstacles; }//getObstacles
 
+    public void decSpeed(){
+        //for(int c = 0; c < getObstacles().size(); c++){
+            //getObstacles().get(c).decSpeedX();
+            getBike().decSpeedX();
+            getOfficer().decSpeedX();
+            getSkater().decSpeedX();
+         // for
+    } // decSpeed
+
 }//World

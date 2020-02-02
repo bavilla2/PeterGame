@@ -122,8 +122,11 @@ public class GameEngine extends Thread {
                 }//if
                 distanceIt++;
             }//if
+
         }//synchronized
         points++;
+
+        if(0 == (points%100)){world.decSpeed();}
     }//shiftWorld
 
     /*Update the Points*/
