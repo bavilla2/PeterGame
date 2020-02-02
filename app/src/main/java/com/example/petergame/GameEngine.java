@@ -66,7 +66,7 @@ public class GameEngine extends Thread {
                 else
                     {
                     world.getPeter().move();
-                    world.getPeter().setSpeedY(world.getPeter().getSpeedY() + (int) (0.07 * world.getPeter().getHeight()));
+                    world.getPeter().setSpeedY(world.getPeter().getSpeedY() + (int) (0.01 * world.getPeter().getHeight()));
                 }
             }
 //            if (world.getPeter().isJumping() && !world.getPeter().isFalling()) {
