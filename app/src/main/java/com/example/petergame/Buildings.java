@@ -12,7 +12,7 @@ public class Buildings extends Entity {
     }
 
     public Buildings (Buildings build){
-        super(3*Constants.SCREEN_WIDTH, build.getPosY(), build.getWidth(), build.getHeight(), build.getSpeedX(), 0);
+        super((3*Constants.SCREEN_WIDTH) - build.getWidth(), build.getPosY(), build.getWidth(), build.getHeight(), build.getSpeedX(), 0);
 
         this.still = build.getStill();
         setAnimation(still);

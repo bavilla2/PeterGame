@@ -19,9 +19,13 @@
 
     <TextView
         android:id="@+id/points"
-        android:layout_width="100dp"
-        android:layout_height="63dp"
+        android:layout_width="181dp"
+        android:layout_height="53dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
         android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="15pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/camera"
         app:layout_constraintHorizontal_bias="0.025"

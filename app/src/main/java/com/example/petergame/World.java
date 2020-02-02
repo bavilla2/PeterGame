@@ -41,9 +41,9 @@ public class World {
         skater = new Skater((SCREEN_WIDTH/2), ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -(runSpeed));
         skater.getWalk().startAnimation();
 
-        buildings.add(new Buildings(SCREEN_WIDTH, (SCREEN_HEIGHT/5)*2, SCREEN_WIDTH/3, SCREEN_HEIGHT/2, -(runSpeed/2)));
-        buildings.add(new Buildings(2*SCREEN_WIDTH, (SCREEN_HEIGHT/6)*2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, -(runSpeed/2)));
-        buildings.add(new Buildings(3*SCREEN_WIDTH, (SCREEN_HEIGHT/5)*2, SCREEN_WIDTH/3, SCREEN_HEIGHT/2, -(runSpeed/2)));
+        buildings.add(new Buildings(SCREEN_WIDTH, (SCREEN_HEIGHT/8)*3, SCREEN_WIDTH/3, SCREEN_HEIGHT/2, -(runSpeed/2)));//Engineering Tower
+        buildings.add(new Buildings(2*SCREEN_WIDTH, (SCREEN_HEIGHT/6)*2, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, -(runSpeed/2)));//Langston
+        buildings.add(new Buildings(3*SCREEN_WIDTH, (SCREEN_HEIGHT/6)*2, SCREEN_WIDTH/3, SCREEN_HEIGHT/2, -(runSpeed/2)));//Subway
         buildings.get(0).getStill().startAnimation();
         buildings.get(1).getStill().startAnimation();
         buildings.get(2).getStill().startAnimation();
