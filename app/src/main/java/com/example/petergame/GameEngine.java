@@ -103,7 +103,9 @@ public class GameEngine extends Thread {
             for(int i = 0; i < world.getBuildings().size(); i++) {
                 world.getBuildings().get(i).move();
                 if ((world.getBuildings().get(i).getPosX() + world.getBuildings().get(i).getWidth()) <= 0) {
-                    world.getBuildings().get(i).getRect().offset(3 * Constants.SCREEN_WIDTH, 0);
+                    Buildings temp = new Buildings(world.getBuildings().get(i));
+                    world.getBuildings().remove(i);
+                    world.getBuildings().insertElementAt(temp, i);
                 } //if
             }// for
 
