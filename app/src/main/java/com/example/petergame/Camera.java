@@ -40,8 +40,8 @@ public class Camera extends View {
         /*cam.drawBitmap(getWorld().getPeter().getJump().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());
         Camera.getWorld().getPeter().getJump().update();*/
 
-        cam.drawBitmap(getWorld().getPeter().getWalk().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());
-        Camera.getWorld().getPeter().getWalk().update();
+        cam.drawBitmap(getWorld().getPeter().getCurrentAnimation().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());
+        Camera.getWorld().getPeter().getCurrentAnimation().update();
 
         cam.drawBitmap(getWorld().getBike().getWalk().getCurrentFrame(), null, getWorld().getBike().getRect(), new Paint());
         Camera.getWorld().getBike().getWalk().update();
