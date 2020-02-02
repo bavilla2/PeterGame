@@ -23,6 +23,7 @@ public class Activity2 extends AppCompatActivity {
     int bikerHeight, bikerWidth;
     int officerHeight, officerWidth;
     int skaterHeight, skaterWidth;
+    int buildingHeight, buildingWidth;
 
     public TextView getScoreView(){return scoreView;}
 
@@ -99,6 +100,18 @@ public class Activity2 extends AppCompatActivity {
         for(int d = 0; d < Camera.getWorld().getSkater().getWalk().length(); d++){
             Camera.getWorld().getSkater().getWalk().insertFrame(Bitmap.createBitmap(Camera.getWorld().getSkater().getWalk().getSpriteSheet(), d*skaterWidth, 0, skaterWidth, skaterHeight), d);
         }//for
+
+        Camera.getWorld().getBuildings().get(0).getStill().setSpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.engineering_tower));
+        Camera.getWorld().getBuildings().get(1).getStill().setSpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.libraries));
+        Camera.getWorld().getBuildings().get(2).getStill().setSpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.subway));
+        buildingHeight = Camera.getWorld().getBuildings().get(0).getStill().getSpriteSheet().getHeight();
+        buildingWidth = Camera.getWorld().getBuildings().get(0).getStill().getSpriteSheet().getWidth();
+
+        Camera.getWorld().getBuildings().get(0).getStill().insertFrame(Bitmap.createBitmap((Camera.getWorld().getBuildings().get(0).getStill().getSpriteSheet()), 0, 0, buildingWidth, buildingHeight), 0);
+        Camera.getWorld().getBuildings().get(1).getStill().insertFrame(Bitmap.createBitmap((Camera.getWorld().getBuildings().get(1).getStill().getSpriteSheet()), 0, 0, 2*buildingWidth, buildingHeight), 0);
+        Camera.getWorld().getBuildings().get(2).getStill().insertFrame(Bitmap.createBitmap((Camera.getWorld().getBuildings().get(2).getStill().getSpriteSheet()), 0, 0, buildingWidth, buildingHeight), 0);
+
+
 
 
     }//onCreate

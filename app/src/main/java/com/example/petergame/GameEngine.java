@@ -100,6 +100,13 @@ public class GameEngine extends Thread {
     /*Movement of the world*/
     private void shiftWorld() {
         synchronized (world.getObstacles()) {
+            for(int i = 0; i < world.getBuildings().size(); i++) {
+                world.getBuildings().get(i).move();
+                if ((world.getBuildings().get(i).getPosX() + world.getBuildings().get(i).getWidth()) <= 0) {
+                    world.getBuildings().get(i).getRect().offset(3 * Constants.SCREEN_WIDTH, 0);
+                } //if
+            }// for
+
             if (world.getObstacles().isEmpty()) {
                 world.getObstacles().add(randObstacle(random.nextInt(numberObstacle)));
             }//if
@@ -130,7 +137,7 @@ public class GameEngine extends Thread {
     }//shiftWorld
 
     /*Update the Points*/
-    public void updateView() {
+    public void updateView(){
         actualGame.getScoreView().setText("Points: " + Integer.toString(points / 10));
     }//updateView
 
