@@ -9,7 +9,7 @@ public class GameEngine extends Thread {
     private Activity2 actualGame;
 
     private int gravity = Constants.SCREEN_HEIGHT / 75;
-    private int runSpeed = Constants.SCREEN_HEIGHT / 100;
+    //private int runSpeed = Constants.SCREEN_HEIGHT / 100;
 
     private Random random;
     private int numberObstacle = 3;
@@ -127,9 +127,11 @@ public class GameEngine extends Thread {
     }//shiftWorld
 
     /*Update the Points*/
-//    public void updateView() {
-//        actualGame.getScoreView.setText("Points: " + Integer.toString(points / 10));
-//    }//updateView
+    public void updateView() {
+        actualGame.getScoreView().setText("Points: " + Integer.toString(points / 10));
+    }//updateView
+
+
 
     /*Run*/
     public void run(){
@@ -138,7 +140,7 @@ public class GameEngine extends Thread {
                 Gravity();
                 shiftWorld();
                 sleep(25);
-                //updateView();
+                updateView();
             } catch(InterruptedException e){
                 e.printStackTrace();
             }//catch
