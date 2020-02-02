@@ -56,7 +56,7 @@ public class Animate {
         return frameIndex;
     } // getFrameIndex
 
-    private void update(){
+    public void update(){
         double dTime = System.currentTimeMillis() - getStartTime();
         if(isAnimating() && (dTime > getTPF()) ){
             setFrameIndex(++frameIndex % length());

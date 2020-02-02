@@ -36,8 +36,13 @@ public class Camera extends View {
 
     @Override
     protected void onDraw(Canvas cam){
-        //cam.drawBitmap(world.getPeter());
-        cam.drawBitmap(getWorld().getPeter().getJump().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());
+
+        /*cam.drawBitmap(getWorld().getPeter().getJump().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());
+        Camera.getWorld().getPeter().getJump().update();*/
+
+        cam.drawBitmap(getWorld().getPeter().getWalk().getCurrentFrame(), null, getWorld().getPeter().getRect(), new Paint());
+        Camera.getWorld().getPeter().getWalk().update();
+
         try{
             Thread.sleep(1000/30);
         }catch(InterruptedException e){

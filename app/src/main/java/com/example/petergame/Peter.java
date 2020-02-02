@@ -8,12 +8,14 @@ public class Peter extends Entity {
     private boolean jumping;
     private Animate damage;
     private Animate jump;
+    private Animate walk;
 
     //Constructor
     public Peter(int posX, int posY, int speedX, int speedY){
        super(posX, posY, Constants.SCREEN_WIDTH/9, Constants.SCREEN_HEIGHT/3, 0, speedY);
        jump = new Animate(4, 1);
        damage = new Animate(4, 1);
+       walk = new Animate(6, 0.5);
        setPoints(0);
        setJumpSpeed((getHeight()/-7));
        setHitBox(posX + (getWidth()/10), posY + (getHeight()/10), posX+(9 * getWidth()/10), posY + (9 * getHeight()/10));
@@ -34,5 +36,6 @@ public class Peter extends Entity {
     public int getJumpSpeed(){return jumpSpeed;}
     public Animate getJump(){return jump;}
     public Animate getDamage(){return damage;}
+    public Animate getWalk(){return walk;}
 
 }//Peter class
