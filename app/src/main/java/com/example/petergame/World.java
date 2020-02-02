@@ -24,17 +24,17 @@ public class World {
     /*Constructor*/
     public World(){
         setEndGame(false);
-        peter = new Peter((SCREEN_WIDTH/9), (SCREEN_HEIGHT/14) * 8, 0, 0);
+        peter = new Peter((SCREEN_WIDTH/9), (SCREEN_HEIGHT/13) * 8, 0, 0);
         peter.setCurrentAnimation(peter.getWalk());
         peter.getCurrentAnimation().startAnimation();
 
-        bike = new BikeRider((SCREEN_WIDTH/7)*2, ((SCREEN_HEIGHT/4)*2) + (Constants.SCREEN_HEIGHT/7) - (Constants.SCREEN_HEIGHT/10), -10);
+        bike = new BikeRider((SCREEN_WIDTH/7)*2, ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -10);
         bike.getWalk().startAnimation();
 
-        officer = new Officer((SCREEN_WIDTH/4), ((SCREEN_HEIGHT/4)*2) + (SCREEN_HEIGHT/7) - (SCREEN_HEIGHT/10), -10);
+        officer = new Officer((SCREEN_WIDTH/4), ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -10);
         officer.getWalk().startAnimation();
 
-        skater = new Skater((SCREEN_WIDTH/2), ((SCREEN_HEIGHT/4)*2) + (SCREEN_HEIGHT/7) - (SCREEN_HEIGHT/10), -10);
+        skater = new Skater((SCREEN_WIDTH/2), ((SCREEN_HEIGHT/7)*4) + (SCREEN_HEIGHT/9) - (SCREEN_HEIGHT/10), -10);
         skater.getWalk().startAnimation();
     }//World Constructor
 
