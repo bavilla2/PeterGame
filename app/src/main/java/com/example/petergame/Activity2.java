@@ -52,9 +52,17 @@ public class Activity2 extends AppCompatActivity {
         Camera.getWorld().getPeter().getJump().setSpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.jump));
         peterHeight = Camera.getWorld().getPeter().getJump().getSpriteSheet().getHeight();
         peterWidth = Camera.getWorld().getPeter().getJump().getSpriteSheet().getWidth() / Camera.getWorld().getPeter().getJump().length();
-        for(int x = 0; x < Camera.getWorld().getPeter().getJump().length(); x++){
+        for(int x = 0; x < Camera.getWorld().getPeter().getJump().length()/2; x++){
             Camera.getWorld().getPeter().getJump().insertFrame(Bitmap.createBitmap(Camera.getWorld().getPeter().getJump().getSpriteSheet(), x*peterWidth, 0, peterWidth, peterHeight), x);
         }//for
+
+        Camera.getWorld().getPeter().getFall().setSpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.jump));
+        peterHeight = Camera.getWorld().getPeter().getFall().getSpriteSheet().getHeight();
+        peterWidth = Camera.getWorld().getPeter().getFall().getSpriteSheet().getWidth() / Camera.getWorld().getPeter().getFall().length();
+        for(int z = 2; z < Camera.getWorld().getPeter().getFall().length(); z++){
+            Camera.getWorld().getPeter().getFall().insertFrame(Bitmap.createBitmap(Camera.getWorld().getPeter().getFall().getSpriteSheet(), z*peterWidth, 0, peterWidth, peterHeight), z);
+        }//for
+
 
         Camera.getWorld().getBike().getWalk().setSpriteSheet(BitmapFactory.decodeResource(getResources(), R.drawable.biker));
         bikerHeight = Camera.getWorld().getBike().getWalk().getSpriteSheet().getHeight();

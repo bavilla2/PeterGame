@@ -8,13 +8,15 @@ public class Peter extends Entity {
     private boolean jumping;
     private Animate damage;
     private Animate jump;
+    private Animate fall;
     private Animate walk;
 
     //Constructor
     public Peter(int posX, int posY, int speedX, int speedY){
        super(posX, posY, Constants.SCREEN_WIDTH/9, Constants.SCREEN_HEIGHT/3, 0, speedY);
-       jump = new Animate(4, 1);
+       jump = new Animate(2, 1);
        damage = new Animate(4, 1);
+       fall = new Animate(2, 1);
        walk = new Animate(6, 0.5);
        setPoints(0);
        setJumpOrigin((getPosY()));
@@ -35,6 +37,7 @@ public class Peter extends Entity {
 //    public boolean isJumping(){return jumping;}
     public int getJumpOrigin(){return jumpOrigin;}
     public Animate getJump(){return jump;}
+    public Animate getFall(){return fall;}
     public Animate getDamage(){return damage;}
     public Animate getWalk(){return walk;}
 
