@@ -9,7 +9,7 @@ public class GameEngine extends Thread {
     private Activity2 actualGame;
 
     private int gravity = Constants.SCREEN_HEIGHT / 75;
-    private int runSpeed = Constants.SCREEN_HEIGHT / 50;
+    private int runSpeed = Constants.SCREEN_HEIGHT / 100;
 
     private Random random;
     private int numberObstacle = 3;
@@ -110,6 +110,7 @@ public class GameEngine extends Thread {
                 world.getObstacles().get(c).move();
                 if ((world.getObstacles().get(c).getPosX() + world.getObstacles().get(c).getWidth()) <= 0) {
                     world.getObstacles().remove(c);
+                    world.getObstacles().insertElementAt(randObstacle(random.nextInt(numberObstacle)),c);
                 }//if
                 if (Rect.intersects(world.getPeter().getHitBox(), world.getObstacles().get(c).getRect())) {
                     world.setEndGame(true);
