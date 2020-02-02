@@ -17,7 +17,7 @@ public class World {
 
     private Peter peter;
     private Vector<Obstacles> obstacles = new Vector<>(10);
-    private BikeRider br;
+    private BikeRider bike;
     private Officer officer;
     private Skater skater;
 
@@ -26,8 +26,15 @@ public class World {
         setEndGame(false);
         peter = new Peter((SCREEN_WIDTH/9), (SCREEN_HEIGHT/4)*2, 0, 0);
         peter.getWalk().startAnimation();
-        br = new BikeRider((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (Constants.SCREEN_HEIGHT/3) - (Constants.SCREEN_HEIGHT/10), 0);
+
+        bike = new BikeRider((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (Constants.SCREEN_HEIGHT/3) - (Constants.SCREEN_HEIGHT/10), 0);
+        bike.getWalk().startAnimation();
+
         officer = new Officer((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (SCREEN_HEIGHT/3) - (SCREEN_HEIGHT/10), 0);
+        officer.getWalk().startAnimation();
+
+        skater = new Skater((SCREEN_WIDTH/7), ((SCREEN_HEIGHT/4)*2) + (SCREEN_HEIGHT/3) - (SCREEN_HEIGHT/10), 0);
+        skater.getWalk().startAnimation();
     }//World Constructor
 
     /*Sets the end of the game*/
@@ -44,7 +51,7 @@ public class World {
     public Peter getPeter(){ return peter; }//getPeter
 
     /*Makes bike rack accessible to other classes*/
-    public BikeRider getBike(){ return br; }//getBike
+    public BikeRider getBike(){ return bike; }//getBike
 
     public Officer getOfficer(){ return officer; }
 
@@ -85,6 +92,8 @@ public class World {
         }//for
 
         cam.drawBitmap(Constants.peterSprite, null, peter.getRect(), new Paint());
-
+        cam.drawBitmap(Constants.skaterSprite, null, skater.getRect(), new Paint());
+        cam.drawBitmap(Constants.bikerSprite, null, bike.getRect(), new Paint());
+        cam.drawBitmap(Constants.officerSprite, null, officer.getRect(), new Paint());
     }//draw
 }//World
