@@ -21,6 +21,7 @@ public class Activity2 extends AppCompatActivity {
     int skaterHeight, skaterWidth;
     public TextView getScoreView(){return scoreView;}
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,5 +74,22 @@ public class Activity2 extends AppCompatActivity {
             Camera.getWorld().getSkater().getAnimation().insertFrame(Bitmap.createBitmap(Camera.getWorld().getSkater().getAnimation().getSpriteSheet(), d*skaterWidth, 0, skaterWidth, skaterHeight), d);
         }//for*/
 
+
     }//onCreate
+    public boolean onTouchEvent(MotionEvent me)
+    {
+        if(me.getAction() == MotionEvent.ACTION_DOWN)
+        {
+            if(Camera.getWorld().getPeter().inAir)
+            {
+
+            }
+            else
+            {
+                Camera.getWorld().getPeter().inAir = true;
+                Camera.getWorld().getPeter().setSpeedY((int)(Camera.getWorld().getPeter().getHeight() * 0.5));
+            }
+        }
+        return true;
+    }
 }
