@@ -32,7 +32,7 @@ public class Activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_2);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         MediaPlayer musicPlayer;
-        musicPlayer = MediaPlayer.create(Activity2.this,R.raw.bgm);
+        musicPlayer = MediaPlayer.create(Activity2.this,R.raw.petrgame_music);
         musicPlayer.setLooping(true);
         musicPlayer.start();
 
