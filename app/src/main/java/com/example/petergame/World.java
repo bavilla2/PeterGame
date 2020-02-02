@@ -25,7 +25,8 @@ public class World {
     public World(){
         setEndGame(false);
         peter = new Peter((SCREEN_WIDTH/9), (SCREEN_HEIGHT/14) * 8, 0, 0);
-        peter.getWalk().startAnimation();
+        peter.setCurrentAnimation(peter.getWalk());
+        peter.getCurrentAnimation().startAnimation();
 
         bike = new BikeRider((SCREEN_WIDTH/7)*2, ((SCREEN_HEIGHT/4)*2) + (Constants.SCREEN_HEIGHT/7) - (Constants.SCREEN_HEIGHT/10), 0);
         bike.getWalk().startAnimation();
@@ -61,7 +62,7 @@ public class World {
     public Vector<Obstacles> getObstacles(){ return obstacles; }//getObstacles
 
     /*draws onto our canvas*/
-    public void draw(Canvas cam){
+    /*public void draw(Canvas cam){
         Paint p = new Paint();
         Paint bikeColor = new Paint();
         Paint hitBoxColor = new Paint();
@@ -87,13 +88,13 @@ public class World {
                     cam.drawRect(getObstacles().get(c).getRect(), bikeColor);
                 } /*else if (getObstacles().get(c) instanceof Pole) {
                     cam.drawRect(getObstacles().get(c).getRect(), poleColor);
-                }// if/elif/elif*/
+                }// if/elif/elif
             }//if
         }//for
 
         cam.drawBitmap(Constants.peterSprite, null, peter.getRect(), new Paint());
         cam.drawBitmap(Constants.skaterSprite, null, skater.getRect(), new Paint());
-        //cam.drawBitmap(Constants.bikerSprite, null, bike.getRect(), new Paint());
+        cam.drawBitmap(Constants.bikerSprite, null, bike.getRect(), new Paint());
         cam.drawBitmap(Constants.officerSprite, null, officer.getRect(), new Paint());
-    }//draw
+    }//draw */
 }//World

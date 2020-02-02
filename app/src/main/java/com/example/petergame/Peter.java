@@ -11,6 +11,7 @@ public class Peter extends Entity {
     private Animate jump;
     private Animate fall;
     private Animate walk;
+    private Animate currentAnimation;
 
     //Constructor
     public Peter(int posX, int posY, int speedX, int speedY){
@@ -19,6 +20,7 @@ public class Peter extends Entity {
        damage = new Animate(4, 1);
        fall = new Animate(2, 1);
        walk = new Animate(6, 0.5);
+       setCurrentAnimation(walk);
        setPoints(0);
        //setJumpSpeed((getHeight()/-7));
         setJumpOrigin((getPosY()));
@@ -44,5 +46,13 @@ public class Peter extends Entity {
     public Animate getFall(){return fall;}
     public Animate getDamage(){return damage;}
     public Animate getWalk(){return walk;}
+
+    public void setCurrentAnimation(Animate animation){
+        currentAnimation = animation;
+    } // setCurrentAnimation
+
+    public Animate getCurrentAnimation(){
+        return currentAnimation;
+    } // getCurrentAnimation
 
 }//Peter class
